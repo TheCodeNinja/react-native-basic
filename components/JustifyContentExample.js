@@ -4,7 +4,7 @@ import { View, Text, StyleSheet } from 'react-native'
 export default class JustifyContentExample extends Component {
     render() {
         return (
-            <View style={ styles.container }>
+            <View style={ styles.containerTwo }>
                 <Text style={ styles.textOne } />
                 <Text style={ styles.textTwo} />
                 <Text style={ styles.textThree } />
@@ -14,17 +14,24 @@ export default class JustifyContentExample extends Component {
 }
 
 const styles = StyleSheet.create({
-    container: {
+    containerOne: {
         flex: 1,
         height: 450,
-        flexDirection: 'column', // column/row
+        flexDirection: 'row', // column/row
         margin: 10,
-        // justifyContent: 'flex-start' // justify from the top of column
-        // justifyContent: 'flex-end' // justify from the bottom of column
-        // justifyContent: 'space-between' // justify evenly from top to bottom of column
-        // justifyContent: 'space-around' // the top and bottom sides of each item share the column space evenly
-        justifyContent: 'center' // justify from the center of column
+        justifyContent: 'center', // justify from left to right ('center' in this case)
+        alignItems: 'flex-end' // align from top to bottom ('bottom' in this case)
+        // alignItems: 'stretch' // will stretch the whole column without fixed height
     },
+    containerTwo: {
+        flex: 1,
+        height: 450,
+        flexDirection: 'column',
+        margin: 10,
+        justifyContent: 'center', // justify from top to bottom ('center' in this case)
+        alignItems: 'flex-end' // align from left to right ('right' in this case)
+        // alignItems: 'stretch' // will stretch the whole row without fixed width
+     },
     textOne: {
         width: 50,
         height: 50,
@@ -38,7 +45,6 @@ const styles = StyleSheet.create({
         marginRight: 10
     },
     textThree: {
-        width: 50,
         height: 50,
         backgroundColor: 'orange',
         marginRight: 10
